@@ -1,0 +1,31 @@
+<apex:page controller="ContactController">
+    <apex:form>
+        <apex:pageBlock title="Contact List">
+            <apex:pageBlockButtons>
+                <apex:commandButton value="FILTER" reRender="contact_list"/>BY
+                <apex:selectList value="{! fieldName}" size="1">
+                    <apex:selectOptions value="{! fieldSelector}"/>
+                    <apex:actionSupport event="onchange" reRender="contact_list"/>
+                </apex:selectList>
+                <apex:inputText value="{! fieldBegin}"/>
+            </apex:pageBlockButtons>
+            <apex:pageBlockTable id="contact_list" var="cont" value="{! contacts}">
+                <apex:column>
+                    <apex:facet name="header">Name</apex:facet>
+                    {! cont.FirstName}
+                </apex:column>
+                <apex:column value="{! cont.LastName}" headerValue="LAST NAME" />
+                <apex:column value="{! cont.Email}" headerValue="Email Address" />
+                <apex:column>
+                    <apex:outputLink value="/Apex/AccountDetail">
+                        {! cont.Account.Name}
+                    </apex:outputLink>
+                </apex:column>
+                <apex:column value="{! cont.MobilePhone}" headerValue="MOBILE" />
+                <apex:column value="{! cont.CreatedDate}" headerValue="DATE" />
+            </apex:pageBlockTable>
+        </apex:pageBlock>
+    </apex:form>
+    
+<!-- End Default Content REMOVE THIS -->
+</apex:page>

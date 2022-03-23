@@ -1,0 +1,6 @@
+<apex:page>
+    <apex:pageBlock title="Contact List">
+        
+    </apex:pageBlock>
+<!-- End Default Content REMOVE THIS -->
+</apex:page>
